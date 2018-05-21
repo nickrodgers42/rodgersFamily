@@ -25,7 +25,7 @@ SECRET_KEY = 's2fg$^&$$q&vt2mly$@v)9^(ov77z3fvv+bs$(yf3(9#-l4%yn'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['144.39.209.160']
+ALLOWED_HOSTS = ['localhost', '144.39.209.160']
 
 
 # Application definition
@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'recipes.apps.RecipesConfig',
 ]
 
 MIDDLEWARE = [
