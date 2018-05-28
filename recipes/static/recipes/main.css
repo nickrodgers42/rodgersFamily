@@ -1,0 +1,20 @@
+* {
+    border: 1px solid black;
+}
+
+h1 {
+    font-family: 'Roboto', serif;
+}
+
+p {
+    font-family: 'PT Sans', sans-serif;
+}
+
+body {
+    margin: 5% 12.5%;
+}
+
+#search {
+    width: inherit;
+    margin: auto;
+}

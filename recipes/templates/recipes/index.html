@@ -3,9 +3,86 @@
 <html>
     <head>
         <title>Rodgers Family Recipes</title>
+        <!-- Element import CSS -->
+        <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+        <!-- Import static javascript -->
         <script src="{% static 'recipes/main.js' %}"></script>
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Roboto|PT+Sans" rel="stylesheet">
+        <!-- CSS -->
+        <link href="{% static 'recipes/main.css' %}" rel="stylesheet" type="text/css"/>
     </head>
     <body>
-        <h1>Hello, World</h1>
+        
+        <el-container id="vue">
+            <el-header>
+                <h1>Rodgers Family Recipes</p>
+                <el-row :gutter="20">
+                    <el-col :span="4">
+                    </el-col>
+                    <el-col>
+
+                    </el-col>
+                    <el-col :span="8" style="background-color: blue; text-align: center;">
+                        <el-autocomplete
+                            id="search"
+                            placeholder="Search"
+                            @select="poop"
+                            :fetch-suggestions="poop"
+                            v-model="state1"
+                            prefix-icon="el-icon-search"
+                        >
+                        </el-autocomplete>
+                    </el-col>
+                </el-row>
+            </el-header>
+            <el-main>
+                <el-button type="primary">Hello Element</el-button>
+                <div>
+                    <p>[[ message ]]</p>
+                </div>
+            </el-main>
+        </el-container>
+
+        <!-- <div id = "vue">
+            <header>
+                <el-row>
+                    <el-col :span="4">
+                        <p style="display: inline;">Rodgers Family Recipes</p>
+                    </el-col>
+                    <el-col :span="12" style="background-color: blue;">
+                    <el-autocomplete
+                        placeholder="Search"
+                        @select="poop"
+                        :fetch-suggestions="poop"
+                        v-model="state1"
+                        class="inline-input"
+                        >
+                    </el-autocomplete>
+                    </el-col>
+                </el-row>
+            <el-button type="primary">Hello Element</el-button>
+            </header>
+            <div>
+                <p>[[ message ]]</p>
+            </div>
+        </div> -->
     </body>
+<!-- Vue -->
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<!-- Element import JavaScript -->
+<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+<script>
+        vm = new Vue({
+            el: '#vue',
+            data: {
+                message: "hello Vue",
+                state1: ''
+            },
+            delimiters: ["[[", "]]"],
+            methods: {
+                poop: function() {}
+            }
+        });
+    </script>
 </html>
