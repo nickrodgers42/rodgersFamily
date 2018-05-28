@@ -45,4 +45,23 @@
             </el-header>
         </el-container>
     </body>
+<!-- Vue -->
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<!-- Element import JavaScript -->
+<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+<script>
+        vm = new Vue({
+            el: '#vue',
+            data: {
+                message: "hello Vue",
+                state1: '',
+                browseBy: ''
+            },
+            delimiters: ["<%", "%>"],
+            methods: {
+                poop: function() {}
+            }
+        });
+    </script>
+
 </html>

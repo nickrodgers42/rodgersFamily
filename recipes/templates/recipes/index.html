@@ -38,7 +38,7 @@
                     mode="horizontal"
                     class="nav-menu"
                 >
-                    <el-menu-item index="1">Great Grandma's Gracious Goodness</el-menu-item>
+                    <el-menu-item index="1" @click="poop()">Great Grandma's Gracious Goodness</el-menu-item>
                     <el-menu-item index="2">Nana's Thai Kitchen</el-menu-item>
                     <el-menu-item index="3">Penny's Favorites</el-menu-item>
                 </el-menu>
@@ -69,7 +69,9 @@
             },
             delimiters: ["<%", "%>"],
             methods: {
-                poop: function() {}
+                poop: function() {
+                    console.log(this.data.subSections);
+                }
             }
         });
     </script>
