@@ -13,60 +13,49 @@
         <link href="{% static 'recipes/main.css' %}" rel="stylesheet" type="text/css"/>
     </head>
     <body>
-        
         <el-container id="vue">
+            <el-row class="header">
+                <el-col :span="8">
+                    <a href="{% url 'recipes:index' %}">
+                        <h1>Baugh Family Recipes</h1>
+                    </a>
+                </el-col>
+                <el-col :span="12" :offset="4">
+                    <div id = "search">
+                    <el-input placeholder="Search">
+                        <el-select placeholder="Browse" slot="prepend" v-model="browseBy">
+                            <el-option label="Appetizers" value="1"></el-option>
+                            <el-option label="Entrees" value="2"></el-option>
+                            <el-option label="Desserts" value="3"></el-option>
+                        </el-select>
+                        <el-button slot="append" icon="el-icon-search"></el-button>
+                    </el-input> 
+                    </div>
+                </el-col>
+            </el-row>
+            <div class="header">
+            </div>
             <el-header>
-                <h1>Rodgers Family Recipes</p>
-                <el-row :gutter="20">
-                    <el-col :span="4">
-                    </el-col>
-                    <el-col>
-
-                    </el-col>
-                    <el-col :span="8" style="background-color: blue; text-align: center;">
-                        <el-autocomplete
-                            id="search"
-                            placeholder="Search"
-                            @select="poop"
-                            :fetch-suggestions="poop"
-                            v-model="state1"
-                            prefix-icon="el-icon-search"
-                        >
-                        </el-autocomplete>
-                    </el-col>
-                </el-row>
+                <el-menu
+                    mode="horizontal"
+                    class="nav-menu"
+                >
+                    <el-menu-item index="1">Great Grandma's Gracious Goodness</el-menu-item>
+                    <el-menu-item index="2">Nana's Thai Kitchen</el-menu-item>
+                    <el-menu-item index="3">Penny's Favorites</el-menu-item>
+                </el-menu>
             </el-header>
             <el-main>
-                <el-button type="primary">Hello Element</el-button>
-                <div>
-                    <p>[[ message ]]</p>
-                </div>
+                <el-carousel height="500px">
+                    <el-carousel-item> <img src="{% static 'recipes/images/testimg1.jpg' %}" height="500px" style="display: block; margin:auto;"></el-carousel-item>
+                    <el-carousel-item> <img src="{% static 'recipes/images/testimg2.jpg' %}" height="500px" style="display: block; margin:auto;"></el-carousel-item>
+                    <el-carousel-item> <img src="{% static 'recipes/images/testimg3.jpg' %}" height="500px" style="display: block; margin:auto;"></el-carousel-item>
+                    <el-carousel-item> <img src="{% static 'recipes/images/testimg4.jpg' %}" height="500px" style="display: block; margin:auto;"></el-carousel-item>
+                </el-carousel>
             </el-main>
         </el-container>
 
-        <!-- <div id = "vue">
-            <header>
-                <el-row>
-                    <el-col :span="4">
-                        <p style="display: inline;">Rodgers Family Recipes</p>
-                    </el-col>
-                    <el-col :span="12" style="background-color: blue;">
-                    <el-autocomplete
-                        placeholder="Search"
-                        @select="poop"
-                        :fetch-suggestions="poop"
-                        v-model="state1"
-                        class="inline-input"
-                        >
-                    </el-autocomplete>
-                    </el-col>
-                </el-row>
-            <el-button type="primary">Hello Element</el-button>
-            </header>
-            <div>
-                <p>[[ message ]]</p>
-            </div>
-        </div> -->
+       
     </body>
 <!-- Vue -->
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
@@ -77,9 +66,10 @@
             el: '#vue',
             data: {
                 message: "hello Vue",
-                state1: ''
+                state1: '',
+                browseBy: ''
             },
-            delimiters: ["[[", "]]"],
+            delimiters: ["<%", "%>"],
             methods: {
                 poop: function() {}
             }
